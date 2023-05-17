@@ -10,4 +10,6 @@ import manifest from "./fresh.gen.ts";
 import twindPlugin from "$fresh/plugins/twind.ts";
 import twindConfig from "./twind.config.ts";
 
-await start(manifest, { plugins: [twindPlugin(twindConfig)] });
+const PORT = Number(Deno.env.get("PORT")) | 3042;
+
+await start(manifest, { port: PORT, plugins: [twindPlugin(twindConfig)] });
